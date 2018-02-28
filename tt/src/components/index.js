@@ -1,9 +1,4 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink
-} from 'react-router-dom';
+import React, { Component } from 'react'; 
 import '../style/index.css';
 import '../style/iconfont.css';
 import axios from "axios";
@@ -249,7 +244,7 @@ export default class index extends Component {
               <h3>{this.state.floor5.floorName}</h3>
               {
                 this.state.plus.map((item,index)=>{
-                  if(item.id == "100033802"){
+                  if(item.id === "100033802"){
                     return(
                       <a href="" key={item.id}>
                       <img src={item.shop_info.ali_image} alt=""/>
