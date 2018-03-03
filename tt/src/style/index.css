@@ -77,10 +77,14 @@
     padding: 8px 12px 18px 12px; margin: 0 auto;
   }
    .zi h4{
-    font-size: 12px;color: #333;
+    font-size: 12px;color: #333;overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
    .zi p {
-    margin-top:6px; font-size: 11px; color: #7f7f7f; 
+    margin-top:6px; font-size: 11px; color: #7f7f7f;overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
   }
    .zi span{
     color: #d44d44; font-size: 11px; font-weight: 700;

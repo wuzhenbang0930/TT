@@ -3,12 +3,18 @@ import '../style/index.css';
 import '../style/iconfont.css';
 import axios from "axios";
 import { Button } from 'antd-mobile';
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink
+} from 'react-router-dom';
 import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 
 export default class index extends Component {
 	constructor(props){
         super(props);
         this.getaxios = this.getaxios.bind(this);
+        this.goto = this.goto.bind(this)
         this.state = {
           data: [],
           plus:[],
@@ -16,6 +22,8 @@ export default class index extends Component {
           slideIndex: 0,
           smallpic : [],
           floor1:{},
+          floor1id:[],
+          floor1data:[],
           floor2:[],
           floor3:["https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_972/format,webp","https://resource.smartisan.com/resource/e883f15eed51a49e1fbc9d8ddd82460b.png?x-oss-process=image/resize,w_972/format,webp"],
           floor3text:[],
@@ -27,12 +35,12 @@ export default class index extends Component {
           floor7id:[],
           floor7id1:[]
         }
+        
       }
     
     
      getaxios(id){
       axios.get(`/product/skus?ids=${id}`).then((res)=>{
-        console.log(res)
         var data = [];
         if(id.length === 4){
           this.setState({
@@ -42,10 +50,20 @@ export default class index extends Component {
           this.setState({
             floor7id1:res.data.data.list
            })
+        }else if(id.length === 12){
+          console.log(res)
+          this.setState({
+            floor1data :res.data.data.list
+          })
         }
      
-       console.log(this.state.floor7id1)
+      //  console.log(this.state.floor7id1)
       })
+    }
+    goto(fid) {
+      console.log(this);
+      console.log(fid)
+      this.props.history.push("/commit/" + fid)
     }
     componentWillMount(){
       axios.get("/marketing/mobile/index_9d2b56c1bf495e7e6caf9d50e7444462.json").then((res)=>{
@@ -63,10 +81,17 @@ export default class index extends Component {
           floor7id :  res.data.floors[6].dataList
     
         })
+        
+        var arr = this.state.floor1.dataList
+        this.setState({
+          floor1id : arr
+        })
+        console.log(this.state.floor1id)
       // console.log(res.data.floors[4].dataList.recommend)
       // console.log()
         this.getaxios(this.state.floor5id)
         this.getaxios(this.state.floor7id)
+        this.getaxios(this.state.floor1id)
         
       });
     }
@@ -82,13 +107,14 @@ export default class index extends Component {
         
       }
   render() {
+    // console.log(this.state)
     return (
       
      
         <div id="box">
           <header>
             <a className="iconfont icon-ego-menu"></a>
-            <a className="iconfont icon-chuizi"></a>
+            <NavLink to="/" className="iconfont icon-chuizi"></NavLink>
             <a></a>
           </header>
           <main>
@@ -99,8 +125,13 @@ export default class index extends Component {
           selectedIndex={1}
           
         >
-          {this.state.data.map((item,index) => (
+          {
+            this.state.data.map((item,index) => {
+              return(
+               
+            
             <a
+                href={item.linkUrl}
               key={index}
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
@@ -113,9 +144,13 @@ export default class index extends Component {
                   window.dispatchEvent(new Event('resize'));
                   this.setState({ imgHeight: 'auto' });
                 }}
+                
+
               />
             </a>
-          ))}
+          )
+        })
+          }
         </Carousel>
             </div>
             <div className="smallpic">
@@ -124,8 +159,8 @@ export default class index extends Component {
                   this.state.smallpic.map((item,index)=>{
                     return(
                       <li key={item.labelTitle}>
-                          <a href="">
-                            <img src={item.src} alt=""/>
+                          <a href={item.linkUrl}>
+                            <img src={item.src} />
                             <span>{item.labelTitle}</span>
                           </a>
                       </li>
@@ -139,50 +174,29 @@ export default class index extends Component {
             <div className="hot">
                 <h3>{this.state.floor1.floorName}</h3>
                 <ul>
-                  <li>
-                    <a href="">
-                      <img src="https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_363/format,webp" alt=""/>
+                  
+                  {
+                   this.state.floor1data.map((item,index)=>{
+                      // console.log(item)
+                      return (
+                      <li key={item.id} onClick={()=>{this.goto(item.spu_id)}}>
+                          <a>
+                      <img src={item.shop_info.ali_image} alt=""/>
                       </a>
                       <div className="zi">
-                        <h4>坚果 Pro2</h4>
-                        <p>漂亮的不像实力派</p>
+                        <h4>{item.name}</h4>
+                        <p>{item.shop_info.sub_title}</p>
                         <span>￥
-                          1799,00</span>
+                          {item.price}</span>
                       </div>
+                   
                   </li>
-                  <li>
-                    <a href="">
-                      <img src="https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_363/format,webp" alt=""/>
-                      </a>
-                      <div className="zi">
-                        <h4>坚果 Pro2</h4>
-                        <p>漂亮的不像实力派</p>
-                        <span>￥
-                          1799,00</span>
-                      </div>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_363/format,webp" alt=""/>
-                      </a>
-                      <div className="zi">
-                        <h4>坚果 Pro2</h4>
-                        <p>漂亮的不像实力派</p>
-                        <span>￥
-                          1799,00</span>
-                      </div>
-                  </li>
-                  <li>
-                    <a href="">
-                      <img src="https://resource.smartisan.com/resource/c71ce2297b362f415f1e74d56d867aed.png?x-oss-process=image/resize,w_363/format,webp" alt=""/>
-                      </a>
-                      <div className="zi">
-                        <h4>坚果 Pro2</h4>
-                        <p>漂亮的不像实力派</p>
-                        <span>￥
-                          1799,00</span>
-                      </div>
-                  </li>
+                      )
+                   })
+              
+                 
+                  
+                 }
                 </ul>
             </div>
 
@@ -190,6 +204,7 @@ export default class index extends Component {
             <div className="floor2">
                 <ul>
                   {
+                    
                     this.state.floor2.map((item,index)=>{
                       return(
                         <li key={index}>
@@ -208,7 +223,10 @@ export default class index extends Component {
           infinite
           selectedIndex={1}
         >
-          {this.state.floor3.map(val => (
+          {this.state.floor3.map((item,val) =>{
+              console.log()
+            return (
+          
             <a key={val} style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}>
               <img src={val} alt="" style={{ width: '100%', verticalAlign: 'top' }} onLoad={() => {
                   window.dispatchEvent(new Event('resize'));
@@ -222,7 +240,7 @@ export default class index extends Component {
              </div>
             </a>
             
-          ))
+          )})
           
           } 
              
@@ -299,7 +317,12 @@ export default class index extends Component {
             </div>
 
           </main>
-        
+          <footer>
+            <NavLink to="/"><span className="iconfont icon-shouye"></span><p>首页</p></NavLink>
+            <NavLink to="/list"><span className="iconfont icon-fenlei"></span><p>分类</p></NavLink>
+            <NavLink to="/gouwuche"><span className="iconfont icon-gouwucheman"></span><p>购物车</p></NavLink>
+            <NavLink to="/my"><span className="iconfont icon-iconfontgerenzhongxin"></span><p>个人中心</p></NavLink>
+          </footer>
           </div>
 		
              

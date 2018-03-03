@@ -1,0 +1,117 @@
+#box1{
+    height: 100%; flex-direction: column
+}
+i{
+    font-style: normal
+}
+.am-navbar {
+    background: #1d1d1d;
+    background-image: linear-gradient(#1d1d1d,#181818);height:50px; text-align: center; position: relative
+}
+.am-navbar-left{
+    background: linear-gradient(#131313,#070707);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    height: 32px;
+    line-height: 1;
+    width: 54px !important;
+    position: absolute;
+    left: 9px;
+    background: linear-gradient(#2a2a29,#151515);
+    box-shadow: inset 0 1px 1px hsla(0,0%,100%,.1), inset 0 0 1px rgba(0,0,0,.5);
+    border-radius: 3px;
+    
+}
+.am-navbar-title{
+    text-align: center;position: absolute; left: 50%;right: 50%;
+}
+.commitmain{
+    height: 100%; flex: 1;overflow: auto
+}
+.commitmain ul{
+    padding: 9px 6px;
+    z-index: 99;
+    background: #f2f2f2;
+    box-shadow: 0 5px 13px rgba(0,0,0,.12);
+    list-style: none;
+    border: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: center;
+   
+}
+.commitmain ul li{
+    flex-basis: 25%;padding: 8px 0; text-align: center;color: #606060; font-size: 14px; font-weight: 700;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #d5d5d5;
+}
+.commitfl2{
+    width: 100%; height: 288px;
+}
+.commitfl2 img{
+    width: 288px;  height: 288px; margin: 0 auto
+}
+.commitfl3 h3{
+    width: 100%; height: 40px; background: #fff; line-height: 40px;padding: 0 12px;font-size: 17px; color: #666;font-weight: 700; border-bottom: 1px solid #e0e0e0;position: absolute;top: 0;left: 0;
+  }
+  .commitfl3{
+      width: 100%; padding: 16px 18px; background: rebeccapurple;position:relative; 
+  }
+  .commitfl3zi{
+      position: absolute; top: 40px;
+  }
+  .commitfl3zi h4{
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  .commitfl3zi p{
+    font-size: 14px;
+    color: #7f7f7f;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+  .commitfl3zi span{
+    color: #d44d44;
+    font-size: 12px;
+    display: inline-block;
+    white-space: nowrap; margin-right: 4px;
+  }
+  .commitfooter{
+      position: fixed;bottom: 0; background: deepskyblue; height: 55px; width: 100%;
+  }
+  .commitfooter ul{
+      display: flex; list-style: none;  justify-content: space-around; 
+      align-items: center; height: 100%;
+      background: #fff;
+    padding: 0 .4%;
+    z-index: 202;
+    box-shadow: 0 -11px 27px rgba(0,0,0,.08);
+  }
+  .commitfooter ul li{
+      margin: 0 .7%;line-height: 38px; text-align: center
+  }
+  .commitfooter ul li:nth-of-type(1){
+      width: 50px;
+  }
+  .commitfooter ul li:nth-of-type(2){
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    background-image: linear-gradient(#fff,#fcfcfc);
+    color: #8c8c8c;
+    height: 38px;
+    flex: 1;
+    border: 1px solid #e0e0e0;
+  }
+  .commitfooter ul li:nth-of-type(3){
+    color: #fff;background: linear-gradient(#6e98f4,#4b77ee);font-size: 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    height: 38px;
+    flex: 1;border: 1px solid #3f6aec;
+  }
+  .commitfl4 img{
+      width: 100%; height: 100%;
+  }
