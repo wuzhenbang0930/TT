@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../style/index.css';
 import '../style/iconfont.css';
 import axios from "axios";
-import { Button } from 'antd-mobile';
 import {
   BrowserRouter as Router,
   Route,

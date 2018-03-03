@@ -1,0 +1,31 @@
+.gwheader{
+    width: 100%; height: 50px; background: #1d1d1d;background-image: linear-gradient(#1d1d1d,#181818);  margin: 0; font-size: 18px;  color: #fff; text-align: center; line-height: 50px;
+}
+.gwmain{
+    width: 100% ; flex: 1; background:#ededed; display: flex;align-items: center; text-align: center;
+justify-content: center; margin-bottom: 54px;
+}
+.gwno span{
+    display: inline-block; background: url(../img/2.png) no-repeat; background-size: 100%;
+    width: 88px; height: 114px;
+}
+.gwno p:nth-of-type(1){
+    color: rgba(0,0,0,.15); font-size: 18px;margin: 25px 0 9px;  
+}
+.gwno p:nth-of-type(2){
+    font-size: 14px;
+    text-align: center;
+    color: rgba(0,0,0,.15);
+}
+.gwno a {
+    display: inline-block;
+    width: 142px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0,0,0,.6);
+    margin: 16px 1px 0;
+    background: linear-gradient(rgba(0,0,0,.01),hsla(0,0%,100%,.01));
+    box-shadow: inset 0 2px 4px hsla(0,0%,100%,.3);
+}

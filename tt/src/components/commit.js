@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../style/iconfont.css';
 import '../style/commit.css';
 import axios from "axios";
+import dd from '../img/2.png'
 
 import { NavBar} from 'antd-mobile';
 
@@ -66,7 +67,7 @@ export default class gouwuche extends Component {
 				}
 				 <div className="commitfooter">
 										  <ul>
-											  <li><img src="./src/img/2.png" alt=""/></li>
+											  <li><img src={dd} alt=""/></li>
 											  <li>加入购物车</li>
 											  <li>现在购买</li>
 										  </ul>
