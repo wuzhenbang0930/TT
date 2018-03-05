@@ -1,0 +1,23 @@
+.mymain{
+    flex: 1; background: #ededed; margin-bottom: 54px; padding: 14px 12px; 
+}
+.myimg{
+    width: 100%; background:darkcyan; height: 83px;border-radius: 9px 9px 0 0; font-size: 17.5px;
+    color: #333; 
+}
+.myimg span:nth-of-type(1){
+    width: 52px; height:52px; font-size: 52px; color: gold; margin-right: 32px;  height: 100%; padding: 13px 15px;
+}
+.myimg span{
+    display: inline-block;vertical-align: middle
+}
+.mymain ul{
+    list-style: none; display: flex; width: 100%; justify-content:space-around; background: #fff;
+    border-radius: 0 0 9px 9px; height: 60px;align-items: center
+}
+.mymain ul li{ 
+    display: flex; flex-direction: column; text-align: center
+}
+.mymain ul li span{
+    font-size: 22px !important;
+}
