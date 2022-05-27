@@ -27,6 +27,7 @@ jobs:
 
       - name: Install and Build 🔧 
         run: |
+          cd tt
           npm install
           npm run build
 
